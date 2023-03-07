@@ -11,6 +11,7 @@ type PropsType = {
     tasks: Array<TaskType>
 }
 
+const name="tre"
 
 export const Todolist = (props: PropsType) => {
     return (
