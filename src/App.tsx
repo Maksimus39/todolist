@@ -18,8 +18,8 @@ const tasks1 = [
 
     return (
         <div className="App">
-            <Todolist title="What to learn"/>
-            <Todolist title="What to learn"/>
+            <Todolist title="What to learn" tasks={tasks1}/>
+            <Todolist title="What to learn" tasks={tasks2}/>
         </div>
     );
 }
