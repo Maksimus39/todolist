@@ -10,13 +10,15 @@ export type TasksType = {
 
 
 type TodolistPropsType = {
+    id: string
     title: string
     tasks: TasksType[]
     filter: ButtonType
-    removeTask: (idTask: string) => void
-    changeFilter: (value: ButtonType) => void
-    addTask: (title: string) => void
-    changeTaskStatus: (id: string, isDone: boolean) => void
+    removeTask: (idTask: string, todolistID: string) => void
+    changeFilter: (value: ButtonType, todolistID: string) => void
+    addTask: (title: string, todolistID: string) => void
+    changeTaskStatus: (id: string, isDone: boolean, todolistID: string) => void
+    removeTodolists: (todolistID: string) => void
 }
 
 export const Todolist: React.FC<TodolistPropsType> = (props) => {
@@ -30,7 +32,7 @@ export const Todolist: React.FC<TodolistPropsType> = (props) => {
     // function addTask
     const addTaskHandler = () => {
         if (title.trim() !== "") {
-            props.addTask(title.trim())
+            props.addTask(title.trim(), props.id)
             setTitle("")
         } else {
             setError("Title is required")
@@ -52,19 +54,24 @@ export const Todolist: React.FC<TodolistPropsType> = (props) => {
 
     // набор функций для фильтрации по кнопкам
     const onClickAllButton = () => {
-        props.changeFilter("all")
+        props.changeFilter("all", props.id)
     }
     const onClickActiveButton = () => {
-        props.changeFilter("active")
+        props.changeFilter("active", props.id)
     }
     const onClickCompletedButton = () => {
-        props.changeFilter("completed")
+        props.changeFilter("completed", props.id)
     }
-
+    // функция удаления todolist
+    const removeTodolist = () => {
+        props.removeTodolists(props.id)
+    }
 
     return (
         <div>
-            <h3>{props.title}</h3>
+            <h3>{props.title}
+                <button onClick={removeTodolist}>X</button>
+            </h3>
             <div>
                 <input
                     value={title}
@@ -79,12 +86,12 @@ export const Todolist: React.FC<TodolistPropsType> = (props) => {
                 {props.tasks.map((task) => {
                     // function onClick
                     const onClickHandler = () => {
-                        props.removeTask(task.id)
+                        props.removeTask(task.id, props.id)
                     }
                     // смена чекбокс
                     const onChangeInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
                         let newIsDoneValue = event.currentTarget.checked
-                        props.changeTaskStatus(task.id, newIsDoneValue)
+                        props.changeTaskStatus(task.id, newIsDoneValue, props.id)
                     }
 
                     return (
