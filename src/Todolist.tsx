@@ -1,5 +1,7 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from "react";
+import React, {ChangeEvent} from "react";
 import {ButtonType} from "./App";
+import {AddItemForm} from "./AddItemForm";
+import {EditableSpan} from "./EditableSpan";
 
 
 export type TasksType = {
@@ -19,38 +21,11 @@ type TodolistPropsType = {
     addTask: (title: string, todolistID: string) => void
     changeTaskStatus: (id: string, isDone: boolean, todolistID: string) => void
     removeTodolists: (todolistID: string) => void
+    changeTaskTitle: (id: string, newTitle: string, todolistID: string) => void
+    changeTodolistTitle:(todolistID: string,newTitle: string)=>void
 }
 
 export const Todolist: React.FC<TodolistPropsType> = (props) => {
-    // хук useState для добавления в input значений
-    const [title, setTitle] = useState("")
-
-    // хук для обработки ошибки
-    const [error, setError] = useState<string | null>(null)
-
-
-    // function addTask
-    const addTaskHandler = () => {
-        if (title.trim() !== "") {
-            props.addTask(title.trim(), props.id)
-            setTitle("")
-        } else {
-            setError("Title is required")
-        }
-    }
-
-    // function onChange
-    const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        setTitle(event.currentTarget.value)
-    }
-
-    // function onKeyPressHandler
-    const onKeyPressHandler = (event: KeyboardEvent<HTMLInputElement>) => {
-        setError(null)
-        if (event.key === "Enter") {
-            addTaskHandler()
-        }
-    }
 
     // набор функций для фильтрации по кнопкам
     const onClickAllButton = () => {
@@ -67,21 +42,25 @@ export const Todolist: React.FC<TodolistPropsType> = (props) => {
         props.removeTodolists(props.id)
     }
 
+    const changeTodolistTitle = (newTitle: string) => {
+        props.changeTodolistTitle(props.id, newTitle)
+    }
+
+
+    const addTask = (title: string) => {
+        props.addTask(title, props.id)
+    }
+
     return (
         <div>
-            <h3>{props.title}
+            <h3>
+                <EditableSpan title={props.title} onChange={changeTodolistTitle}/>
                 <button onClick={removeTodolist}>X</button>
             </h3>
-            <div>
-                <input
-                    value={title}
-                    onChange={onChangeHandler}
-                    onKeyPress={onKeyPressHandler}
-                    className={error ? "error" : ""}
-                />
-                <button onClick={addTaskHandler}>Add task</button>
-                {error && <div className={"error-message"}>{error}</div>}
-            </div>
+
+
+            <AddItemForm addItem={addTask}/>
+
             <ul>
                 {props.tasks.map((task) => {
                     // function onClick
@@ -89,9 +68,13 @@ export const Todolist: React.FC<TodolistPropsType> = (props) => {
                         props.removeTask(task.id, props.id)
                     }
                     // смена чекбокс
-                    const onChangeInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
+                    const onChangeStatusInputHandler = (event: ChangeEvent<HTMLInputElement>) => {
                         let newIsDoneValue = event.currentTarget.checked
                         props.changeTaskStatus(task.id, newIsDoneValue, props.id)
+                    }
+
+                    const onChangeTitleInputHandler = (newValue: string) => {
+                        props.changeTaskTitle(task.id, newValue, props.id)
                     }
 
                     return (
@@ -99,9 +82,13 @@ export const Todolist: React.FC<TodolistPropsType> = (props) => {
                             <input
                                 type="checkbox"
                                 checked={task.isDone}
-                                onChange={onChangeInputHandler}
+                                onChange={onChangeStatusInputHandler}
                             />
-                            <span>{task.title}</span>
+
+                            {/*<span>{task.title}</span>*/}
+                            <EditableSpan title={task.title} onChange={onChangeTitleInputHandler}/>
+
+
                             <button onClick={onClickHandler}>✖️</button>
                         </li>
                     )
@@ -120,3 +107,6 @@ export const Todolist: React.FC<TodolistPropsType> = (props) => {
         </div>
     )
 }
+
+
+

@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import './App.css';
 import {TasksType, Todolist} from "./Todolist";
 import {v1} from "uuid";
+import {Simulate} from "react-dom/test-utils";
+import input = Simulate.input;
+import {AddItemForm} from "./AddItemForm";
 
 // типизация для массива тудулистов
 type TodolistType = {
@@ -13,12 +16,20 @@ type TodolistType = {
 // типизация для Button кнопок
 export type ButtonType = "all" | "active" | "completed"
 
+// типизация для массива тасок
+type TasksStateType = {
+    [key: string]: Array<TasksType>
+}
 
 function App() {
 
     // функция удаления tasks
     function removeTask(idTask: string, todolistID: string) {
         setTasksObj({...tasksObj, [todolistID]: tasksObj[todolistID].filter(t => t.id != idTask)})
+    }
+    // функция изменения title todolist
+    function changeTodolistTitle(todolistID: string, newTitle: string) {
+        setTodolist(todolists.map(tl => tl.id === todolistID ? {...tl, title: newTitle} : tl))
     }
 
     // функция по фильтрации по кнопкам
@@ -41,6 +52,13 @@ function App() {
         })
     }
 
+    function changeTaskTitle(id: string, newTitle: string, todolistID: string) {
+        setTasksObj({
+            ...tasksObj,
+            [todolistID]: tasksObj[todolistID].map(ts => ts.id === id ? {...ts, title: newTitle} : ts)
+        })
+    }
+
     // функция удаления todolist
     function removeTodolists(todolistID: string) {
         setTodolist(todolists.filter(tl => tl.id !== todolistID))
@@ -55,13 +73,13 @@ function App() {
 
     // state для todolist
     let [todolists, setTodolist] = useState<Array<TodolistType>>([
-        {id: todolistID1, title: "What to learn", filter: "active"},
-        {id: todolistID2, title: "What to buy", filter: "completed"}
+        {id: todolistID1, title: "What to learn", filter: "all"},
+        {id: todolistID2, title: "What to buy", filter: "all"}
     ])
 
 
     // state для tasks
-    let [tasksObj, setTasksObj] = useState({
+    let [tasksObj, setTasksObj] = useState<TasksStateType>({
         [todolistID1]: [
             {id: v1(), title: "HTML&CSS", isDone: true},
             {id: v1(), title: "JS", isDone: true},
@@ -80,9 +98,21 @@ function App() {
         ]
     })
 
+    function addTodolist(title: string) {
+        let todolist: TodolistType = {
+            id: v1(),
+            filter: "all",
+            title: title
+        }
+        setTodolist([...todolists, todolist])
+        setTasksObj({...tasksObj, [todolist.id]: []})
+    }
 
     return (
         <div className="App">
+            <AddItemForm addItem={addTodolist}/>
+
+
             {todolists.map((tl) => {
 
                 // блок кода filter
@@ -106,8 +136,10 @@ function App() {
                     changeFilter={changeFilter}
                     addTask={addTask}
                     changeTaskStatus={changeTaskStatus}
+                    changeTaskTitle={changeTaskTitle}
                     filter={tl.filter}
                     removeTodolists={removeTodolists}
+                    changeTodolistTitle={changeTodolistTitle}
                 />
             })}
         </div>
