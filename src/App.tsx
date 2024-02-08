@@ -7,7 +7,7 @@ import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography}
 import {Menu} from "@mui/icons-material";
 
 // типизация для массива тудулистов
-type TodolistType = {
+export type TodolistType = {
     id: string
     title: string
     filter: ButtonType
@@ -77,6 +77,16 @@ function App() {
         {id: todolistID2, title: "What to buy", filter: "all"}
     ])
 
+    function addTodolist(title: string) {
+        let todolist: TodolistType = {
+            id: v1(),
+            filter: "all",
+            title: title
+        }
+        setTodolist([...todolists, todolist])
+        setTasksObj({...tasksObj, [todolist.id]: []})
+    }
+
     // state для tasks
     let [tasksObj, setTasksObj] = useState<TasksStateType>({
         [todolistID1]: [
@@ -97,15 +107,7 @@ function App() {
         ]
     })
 
-    function addTodolist(title: string) {
-        let todolist: TodolistType = {
-            id: v1(),
-            filter: "all",
-            title: title
-        }
-        setTodolist([...todolists, todolist])
-        setTasksObj({...tasksObj, [todolist.id]: []})
-    }
+
 
     return (
         <div className="App">
@@ -121,7 +123,7 @@ function App() {
                 </Toolbar>
             </AppBar>
             <Container fixed>
-                <Grid container style={{padding:"10px"}}>
+                <Grid container style={{padding: "10px"}}>
                     <AddItemForm addItem={addTodolist}/>
                 </Grid>
                 <Grid container spacing={3}>
@@ -139,7 +141,7 @@ function App() {
                         }
 
                         return <Grid item>
-                            <Paper style={{padding:"10px"}}>
+                            <Paper style={{padding: "10px"}}>
                                 <Todolist
                                     key={tl.id}
                                     id={tl.id}
