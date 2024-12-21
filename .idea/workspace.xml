@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 01, неделя 4">
+    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 02, неделя 1">
+      <change afterPath="$PROJECT_DIR$/src/AddItemForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EditableSpan.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
     </list>
@@ -158,6 +159,7 @@
     <MESSAGE value="Спринт 01, неделя 2" />
     <MESSAGE value="Спринт 01, неделя 3" />
     <MESSAGE value="Спринт 01, неделя 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="Спринт 01, неделя 4" />
+    <MESSAGE value="Спринт 02, неделя 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Спринт 02, неделя 1" />
   </component>
 </project>
