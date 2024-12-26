@@ -19,16 +19,17 @@ export type FilterValuesType = 'all' | 'active' | 'completed'
 export type TasksStateType = {
     [key: string]: TaskType[]
 }
-type TodolistType = {
+export type TodolistType = {
     id: string
     title: string
     filter: FilterValuesType
 }
 
+
 export const App = () => {
 
-    let todolistID1 = v1()
-    let todolistID2 = v1()
+    const todolistID1 = v1()
+    const todolistID2 = v1()
 
     let [tasks, setTasks] = useState<TasksStateType>({
         [todolistID1]: [
@@ -83,10 +84,7 @@ export const App = () => {
     const removeTodolist = (todolistId: string) => {
         const newTodolists = todolists.filter(tl => tl.id !== todolistId)
         setTodolists(newTodolists)
-
-        // удалим таски для тудулиста из стейта где мы храним таски
         delete tasks[todolistId]
-        // засетаем в state копию объекта
         setTasks({...tasks})
     }
 
@@ -125,7 +123,7 @@ export const App = () => {
     return (
         <div>
             <ThemeProvider theme={theme}>
-                <CssBaseline />
+                <CssBaseline/>
                 <AppBar position="static" sx={{mb: '30px'}}>
                     <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
                         <IconButton color="inherit">
@@ -135,7 +133,7 @@ export const App = () => {
                             <MenuButton>Login</MenuButton>
                             <MenuButton>Logout</MenuButton>
                             <MenuButton background={theme.palette.primary.dark}>Faq</MenuButton>
-                            <Switch color={'default'} onChange={changeModeHandler} />
+                            <Switch color={'default'} onChange={changeModeHandler}/>
                         </div>
                     </Toolbar>
                 </AppBar>
