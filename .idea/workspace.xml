@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 02, неделя 3">
-      <change afterPath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/todolists-reducer.ts" afterDir="false" />
+    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 02, неделя 4/Типизация экшенов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,27 +51,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Jest.correct filter of todolist should be changed.executor": "Run",
-    "Jest.correct todolist should be added.executor": "Run",
-    "Jest.correct todolist should be removed.executor": "Run",
-    "Jest.correct todolist should change its name.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Lesson_IT/it-incubator/Frontend/1-todolist/src/model",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "D:/Lesson_IT/it-incubator/Frontend/1-todolist/node_modules/react-scripts",
-    "nodejs_package_manager_path": "yarn",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "MTFeaturesSettingsConfigurable",
-    "ts.external.directory.path": "D:\\Lesson_IT\\it-incubator\\Frontend\\1-todolist\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Jest.correct filter of todolist should be changed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct todolist should be added.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct todolist should be removed.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.correct todolist should change its name.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Lesson_IT/it-incubator/Frontend/1-todolist/src/model&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;D:/Lesson_IT/it-incubator/Frontend/1-todolist/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MTFeaturesSettingsConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Lesson_IT\\it-incubator\\Frontend\\1-todolist\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\model" />
@@ -82,7 +81,7 @@
       <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\Todolist.tsx" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.correct filter of todolist should be changed">
+  <component name="RunManager" selected="Jest.correct todolist should change its name">
     <configuration name="correct filter of todolist should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -126,6 +125,7 @@
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
+      <jest-options value="--watch" />
       <envs />
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" />
@@ -146,10 +146,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.correct filter of todolist should be changed" />
         <item itemvalue="Jest.correct todolist should change its name" />
         <item itemvalue="Jest.correct todolist should be added" />
         <item itemvalue="Jest.correct todolist should be removed" />
+        <item itemvalue="Jest.correct filter of todolist should be changed" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -173,7 +173,7 @@
       <workItem from="1733726980459" duration="3266000" />
       <workItem from="1735066659049" duration="1258000" />
       <workItem from="1735067966908" duration="5926000" />
-      <workItem from="1735241246172" duration="4948000" />
+      <workItem from="1735241246172" duration="6599000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -231,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735100105351</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Спринт 02, неделя 4/Типизация экшенов">
+      <option name="closed" value="true" />
+      <created>1735246355720</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1735246355720</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +265,7 @@
     <MESSAGE value="Спринт 02, неделя 2" />
     <MESSAGE value="Спринт 02, неделя 3.0" />
     <MESSAGE value="Спринт 02, неделя 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Спринт 02, неделя 3" />
+    <MESSAGE value="Спринт 02, неделя 4/Типизация экшенов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Спринт 02, неделя 4/Типизация экшенов" />
   </component>
 </project>
