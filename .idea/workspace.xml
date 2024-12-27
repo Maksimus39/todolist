@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 02, неделя 4/Типизация экшенов">
+    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 02, неделя 4/Action creator">
+      <change afterPath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/tasks-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/todolists-tasks-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +43,9 @@
     &quot;accountId&quot;: &quot;3a1e94be-6a60-4ca1-8044-e62c085197b0&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/model/tasks-reducer.test.ts" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -51,27 +56,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Jest.correct filter of todolist should be changed.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.correct todolist should be added.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.correct todolist should be removed.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.correct todolist should change its name.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Lesson_IT/it-incubator/Frontend/1-todolist/src/model&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;D:/Lesson_IT/it-incubator/Frontend/1-todolist/node_modules/react-scripts&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTFeaturesSettingsConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Lesson_IT\\it-incubator\\Frontend\\1-todolist\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Jest.correct filter of todolist should be changed.executor": "Run",
+    "Jest.correct task should be added to correct array.executor": "Run",
+    "Jest.correct task should be deleted from correct array.executor": "Run",
+    "Jest.correct todolist should be added.executor": "Run",
+    "Jest.correct todolist should be removed.executor": "Run",
+    "Jest.correct todolist should change its name.executor": "Run",
+    "Jest.ids should be equals.executor": "Run",
+    "Jest.new array should be added when new todolist is added.executor": "Run",
+    "Jest.property with todolistId should be deleted.executor": "Run",
+    "Jest.status of specified task should be changed.executor": "Run",
+    "Jest.title of specified task should be changed.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Lesson_IT/it-incubator/Frontend/1-todolist/src/model",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "D:/Lesson_IT/it-incubator/Frontend/1-todolist/node_modules/react-scripts",
+    "nodejs_package_manager_path": "yarn",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "MTFeaturesSettingsConfigurable",
+    "ts.external.directory.path": "D:\\Lesson_IT\\it-incubator\\Frontend\\1-todolist\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\model" />
@@ -81,76 +93,75 @@
       <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\Todolist.tsx" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.correct todolist should change its name">
-    <configuration name="correct filter of todolist should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <jest-options value="--watch" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" />
-      <test-names>
-        <test-name value="correct filter of todolist should be changed" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="correct todolist should be added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <jest-options value="--watch" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" />
-      <test-names>
-        <test-name value="correct todolist should be added" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Jest.new array should be added when new todolist is added">
     <configuration name="correct todolist should be removed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
-      <jest-options value="--watch" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" />
+      <test-file value="$PROJECT_DIR$/src/todolists-tasks-reducer.test.ts" />
       <test-names>
         <test-name value="correct todolist should be removed" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="correct todolist should change its name" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="ids should be equals" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/todolists-tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="ids should be equals" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="new array should be added when new todolist is added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <jest-options value="--watch" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" />
+      <test-file value="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" />
       <test-names>
-        <test-name value="correct todolist should change its name" />
+        <test-name value="new array should be added when new todolist is added" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="start" />
-      </scripts>
+    <configuration name="property with todolistId should be deleted" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
       <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="property with todolistId should be deleted" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="title of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" />
+      <test-names>
+        <test-name value="title of specified task should be changed" />
+      </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.correct todolist should change its name" />
-        <item itemvalue="Jest.correct todolist should be added" />
+        <item itemvalue="Jest.new array should be added when new todolist is added" />
         <item itemvalue="Jest.correct todolist should be removed" />
-        <item itemvalue="Jest.correct filter of todolist should be changed" />
-        <item itemvalue="npm.start" />
+        <item itemvalue="Jest.property with todolistId should be deleted" />
+        <item itemvalue="Jest.ids should be equals" />
+        <item itemvalue="Jest.title of specified task should be changed" />
       </list>
     </recent_temporary>
   </component>
@@ -174,6 +185,7 @@
       <workItem from="1735066659049" duration="1258000" />
       <workItem from="1735067966908" duration="5926000" />
       <workItem from="1735241246172" duration="6599000" />
+      <workItem from="1735247938186" duration="10113000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -239,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735246355720</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Спринт 02, неделя 4/Action creator">
+      <option name="closed" value="true" />
+      <created>1735247996015</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1735247996015</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +286,7 @@
     <MESSAGE value="Спринт 02, неделя 3.0" />
     <MESSAGE value="Спринт 02, неделя 3" />
     <MESSAGE value="Спринт 02, неделя 4/Типизация экшенов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Спринт 02, неделя 4/Типизация экшенов" />
+    <MESSAGE value="Спринт 02, неделя 4/Action creator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Спринт 02, неделя 4/Action creator" />
   </component>
 </project>
