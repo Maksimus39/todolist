@@ -4,21 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 03, неделя 2/5">
-      <change afterPath="$PROJECT_DIR$/src/app/store/store.ts" afterDir="false" />
+    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 03, неделя 3">
+      <change afterPath="$PROJECT_DIR$/src/Task.style.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Task.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/Main.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/app-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/appSelectors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/components/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/hooks/useAppDispatch.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/hooks/useAppSelectors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/common/theme/theme.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/todolists/model/tasksSelectors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/todolists/model/todolistsSelectors.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/Todolists.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/Todolist.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/filterTasksButton/FilterTasksButtons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/tasks/Tasks.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/todolistTitle/TodolistTitle.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/todolistTitle/TodolistTitle.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppWithReducers.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/components/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/components/EditableSpan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/components/MenuButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Todolist.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-tasks-reducer.test.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,45 +84,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Jest.correct filter of todolist should be changed.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.correct task should be added to correct array.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.correct task should be deleted from correct array.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.correct todolist should be added.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.correct todolist should be removed.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.correct todolist should change its name.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.ids should be equals.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.new array should be added when new todolist is added.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.property with todolistId should be deleted.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.status of specified task should be changed.executor&quot;: &quot;Run&quot;,
-    &quot;Jest.title of specified task should be changed.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Lesson_IT/it-incubator/Frontend/1-todolist/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs.jest.jest_package&quot;: &quot;D:/Lesson_IT/it-incubator/Frontend/1-todolist/node_modules/react-scripts&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTFeaturesSettingsConfigurable&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Lesson_IT\\it-incubator\\Frontend\\1-todolist\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Jest.correct filter of todolist should be changed.executor": "Run",
+    "Jest.correct task should be added to correct array.executor": "Run",
+    "Jest.correct task should be deleted from correct array.executor": "Run",
+    "Jest.correct todolist should be added.executor": "Run",
+    "Jest.correct todolist should be removed.executor": "Run",
+    "Jest.correct todolist should change its name.executor": "Run",
+    "Jest.ids should be equals.executor": "Run",
+    "Jest.new array should be added when new todolist is added.executor": "Run",
+    "Jest.property with todolistId should be deleted.executor": "Run",
+    "Jest.status of specified task should be changed.executor": "Run",
+    "Jest.title of specified task should be changed.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Lesson_IT/it-incubator/Frontend/1-todolist/src/features/todolists/model",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "D:/Lesson_IT/it-incubator/Frontend/1-todolist/node_modules/react-scripts",
+    "nodejs_package_manager_path": "yarn",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "MTFeaturesSettingsConfigurable",
+    "ts.external.directory.path": "D:\\Lesson_IT\\it-incubator\\Frontend\\1-todolist\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\features\todolists\model" />
+      <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\features\todolists\ui\todolists\todolist\todolistTitle" />
       <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src" />
+      <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\features\todolists\ui\todolists\todolist\filterTasksButton" />
       <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\model" />
     </key>
     <key name="es6.move.members.recent.items">
       <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\Todolist.tsx" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\common" />
+      <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\features\todolists\model\__tests__" />
+      <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\features\todolists" />
+      <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\common\components" />
       <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\app" />
-      <recent name="D:\Lesson_IT\it-incubator\Frontend\1-todolist\src\model" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -201,7 +225,7 @@
       <workItem from="1735416466442" duration="1398000" />
       <workItem from="1735417906269" duration="2297000" />
       <workItem from="1735453071191" duration="3047000" />
-      <workItem from="1735456171757" duration="1502000" />
+      <workItem from="1735456171757" duration="12578000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -291,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735420182394</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Спринт 03, неделя 3">
+      <option name="closed" value="true" />
+      <created>1735457794869</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1735457794869</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -321,6 +353,7 @@
     <MESSAGE value="Спринт 02, неделя 4/Action creator" />
     <MESSAGE value="Спринт 03, неделя 1" />
     <MESSAGE value="Спринт 03, неделя 2/5" />
-    <option name="LAST_COMMIT_MESSAGE" value="Спринт 03, неделя 2/5" />
+    <MESSAGE value="Спринт 03, неделя 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Спринт 03, неделя 3" />
   </component>
 </project>

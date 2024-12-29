@@ -6,7 +6,7 @@ import {
     removeTodolistAC,
     todolistsReducer
 } from "./todolists-reducer";
-import {TodolistType} from "../app/App";
+import {TodolistType} from "../../../../app/App";
 
 test('correct todolist should be removed', () => {
     const todolistID1 = v1()
