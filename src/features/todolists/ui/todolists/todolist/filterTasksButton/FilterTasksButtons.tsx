@@ -3,10 +3,8 @@ import Button from "@mui/material/Button";
 import React from "react";
 import {FilterValuesType, TodolistType} from "../../../../../../app/App"
 import {changeTodolistFilterAC} from "../../../../model/__tests__/todolists-reducer";
-import {useDispatch} from "react-redux";
 import {filterButtonsContainerSx} from "../../../../../../Task.style";
 import {useAppDispatch} from "../../../../../../common/hooks/useAppDispatch";
-
 
 
 export type Props = {
