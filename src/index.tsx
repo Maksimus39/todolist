@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './app/App.css'
-import {App} from "./app/App";
 import {store} from "./app/store/store";
 import {Provider} from "react-redux";
+import {AppHttpRequests} from "./app/AppHttpRequests";
 
 
 const root = ReactDOM.createRoot(
@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <App/>
+            <AppHttpRequests/>
         </Provider>
     </React.StrictMode>
 );

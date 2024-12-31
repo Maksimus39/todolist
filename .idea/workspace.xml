@@ -4,39 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 03, неделя 3">
-      <change afterPath="$PROJECT_DIR$/src/Task.style.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/Main.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/app-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/appSelectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/components/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/hooks/useAppDispatch.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/hooks/useAppSelectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/theme/theme.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/model/tasksSelectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/model/todolistsSelectors.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/Todolists.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/Todolist.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/filterTasksButton/FilterTasksButtons.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/tasks/Tasks.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/todolistTitle/TodolistTitle.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/features/todolists/ui/todolists/todolist/todolistTitle/TodolistTitle.tsx" afterDir="false" />
+    <list default="true" id="611287c2-a765-4cf3-bab8-83423910f61e" name="Changes" comment="Спринт 03, неделя 4">
+      <change afterPath="$PROJECT_DIR$/src/app/AppHttpRequests.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/components/AddItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/components/EditableSpan.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/components/MenuButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Todolist.styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/store/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store/store.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/tasks-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.test.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-reducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/todolists-tasks-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/todolists/model/__tests__/todolists-tasks-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,16 +72,19 @@
     "Jest.status of specified task should be changed.executor": "Run",
     "Jest.title of specified task should be changed.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "D:/Lesson_IT/it-incubator/Frontend/1-todolist/src/features/todolists/model",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs.jest.jest_package": "D:/Lesson_IT/it-incubator/Frontend/1-todolist/node_modules/react-scripts",
     "nodejs_package_manager_path": "yarn",
     "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "MTFeaturesSettingsConfigurable",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "D:\\Lesson_IT\\it-incubator\\Frontend\\1-todolist\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -194,17 +171,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
-        <item itemvalue="Jest.new array should be added when new todolist is added" />
-        <item itemvalue="Jest.correct todolist should be removed" />
         <item itemvalue="Jest.property with todolistId should be deleted" />
+        <item itemvalue="Jest.new array should be added when new todolist is added" />
         <item itemvalue="Jest.ids should be equals" />
+        <item itemvalue="Jest.correct todolist should be removed" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-WS-242.23339.15" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.222" />
       </set>
     </attachedChunks>
   </component>
@@ -226,6 +203,10 @@
       <workItem from="1735417906269" duration="2297000" />
       <workItem from="1735453071191" duration="3047000" />
       <workItem from="1735456171757" duration="12578000" />
+      <workItem from="1735645209095" duration="1704000" />
+      <workItem from="1735646952741" duration="921000" />
+      <workItem from="1735647896947" duration="331000" />
+      <workItem from="1735648252007" duration="10554000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <option name="closed" value="true" />
@@ -354,6 +335,8 @@
     <MESSAGE value="Спринт 03, неделя 1" />
     <MESSAGE value="Спринт 03, неделя 2/5" />
     <MESSAGE value="Спринт 03, неделя 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Спринт 03, неделя 3" />
+    <MESSAGE value="01 - Todolist for students" />
+    <MESSAGE value="Спринт 03, неделя 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Спринт 03, неделя 4" />
   </component>
 </project>
