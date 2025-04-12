@@ -1,4 +1,5 @@
 import Button from "./Button.tsx";
+import {FilteredTasks} from "./App.tsx";
 
 type TasksType = {
     id: number,
@@ -9,8 +10,10 @@ type TasksType = {
 type Props = {
     title: string
     tasks: TasksType[]
+    deleteTask: (taskId: number) => void
+    filteredTasksHandler: (value: FilteredTasks) => void
 }
-export const Todolist = ({title, tasks}: Props) => {
+export const Todolist = ({title, tasks, deleteTask, filteredTasksHandler}: Props) => {
     return (
         <div>
             <h3>{title}</h3>
@@ -27,14 +30,18 @@ export const Todolist = ({title, tasks}: Props) => {
                             <input type="checkbox"
                                    checked={task.isDone}/>
                             <span>{task.title}</span>
+                            <Button title={"X"} onClick={() => deleteTask(task.id)}/>
                         </li>
                     )
                 })}
             </ul>)}
 
-            <Button title={"All"}/>
-            <Button title={"Active"}/>
-            <Button title={"Completed"}/>
+            <Button title={"All"}
+                    onClick={() => filteredTasksHandler("All")}/>
+            <Button title={"Active"}
+                    onClick={() => filteredTasksHandler("Active")}/>
+            <Button title={"Completed"}
+                    onClick={() => filteredTasksHandler("Completed")}/>
         </div>
     )
 }
