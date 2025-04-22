@@ -20,10 +20,15 @@ export const App = () => {
     const filteredTasksHandler = (value: FilteredTasks) => {
         setFilter(value)
     }
-    const createTask = (taskTitle:string) => {
+    const createTask = (taskTitle: string) => {
         const newTask: TasksType = {id: v1(), title: taskTitle, isDone: false}
         setTasks([newTask, ...tasks])
     }
+    const changeTaskStatus = (taskId: string, isDone: boolean) => {
+        const task = tasks.map(t => t.id === taskId ? {...t, isDone} : t)
+        setTasks(task)
+    }
+
 
     let filteredTasks = tasks
     if (filter === "Active") {
@@ -41,6 +46,8 @@ export const App = () => {
                       deleteTask={deleteTask}
                       filteredTasksHandler={filteredTasksHandler}
                       createTask={createTask}
+                      changeTaskStatus={changeTaskStatus}
+                      filter={filter}
             />
         </div>
     )
