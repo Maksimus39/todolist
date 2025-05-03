@@ -1,5 +1,5 @@
 {
-  "name": "todolist-01",
+  "name": "todolist-09",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,9 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.0",
+    "@mui/icons-material": "6.3.0",
+    "@mui/material": "6.3.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "uuid": "^11.1.0"
+    "uuid": "11.0.3"
   },
   "devDependencies": {
     "@types/react": "19.0.2",
