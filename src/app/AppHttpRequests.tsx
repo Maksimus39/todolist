@@ -1,54 +1,35 @@
 import {type ChangeEvent, type CSSProperties, useEffect, useState} from 'react'
 import Checkbox from '@mui/material/Checkbox'
-import {CreateItemForm} from '@/common/components/CreateItemForm/CreateItemForm'
-import {EditableSpan} from '@/common/components/EditableSpan/EditableSpan'
-import axios from "axios";
+import {CreateItemForm, EditableSpan} from "@/common/components";
+import {BaseResponse} from "@/common/types";
+import {instance} from "@/common/instance/instance.ts";
 
-
-const token = "cc8911d4-ffc8-461d-b2f1-fa3cff0e034f"
-const ApiKey = "54bd2699-2115-4c67-8b13-b021468f774d"
 
 export const AppHttpRequests = () => {
     const [todolists, setTodolists] = useState<Todolist[]>([])
     const [tasks, setTasks] = useState<any>({})
 
     useEffect(() => {
-        axios.get<Todolist[]>('https://social-network.samuraijs.com/api/1.1/todo-lists', {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }).then(res => {
-            console.log(res.data)
-            setTodolists(res.data)
-        })
+        instance.get<Todolist[]>('/todo-lists').then(res => setTodolists(res.data))
     }, [setTodolists, setTasks])
 
+
     const createTodolist = (title: string) => {
-        axios.post<CreateTodolistResponse>('https://social-network.samuraijs.com/api/1.1/todo-lists', {title: title}, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "API-KEY": ApiKey
-            },
-        }).then(res => {
+        instance.post<BaseResponse<{ item: Todolist }>>('/todo-lists', {title}).then(res => {
             const newTodolist = res.data.data.item
-            console.log(newTodolist)
             setTodolists([newTodolist, ...todolists])
         })
     }
-
-    const deleteTodolist = (todolistID: string) => {
-        axios.delete<DeleteTodolistResponse>(`https://social-network.samuraijs.com/api/1.1/todo-lists/${todolistID}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "API-KEY": ApiKey
-            },
-        }).then(res => {
-            console.log(res)
-            setTodolists(todolists.filter(el => el.id !== todolistID))
+    const deleteTodolist = (todolistId: string) => {
+        instance.delete<BaseResponse>(`/todo-lists/${todolistId}`).then(() => {
+            setTodolists(todolists.filter(el => el.id !== todolistId))
         })
     }
 
-    const changeTodolistTitle = (id: string, title: string) => {
+    const changeTodolistTitle = (todolistId: string, title: string) => {
+        instance.put<BaseResponse>(`/todo-lists/${todolistId}`, {title}).then(() => {
+            setTodolists(todolists.map(t => t.id === todolistId ? {...t, title: title} : t))
+        })
     }
 
     const createTask = (todolistId: string, title: string) => {
@@ -98,30 +79,9 @@ const container: CSSProperties = {
     justifyContent: 'space-between',
     flexDirection: 'column',
 }
-
-
 export type Todolist = {
     id: string
     title: string
     addedDate: string
     order: number
-}
-
-export type FieldError = {
-    error: string
-    field: string
-}
-
-type CreateTodolistResponse = {
-    data: { item: Todolist }
-    resultCode: number
-    messages: string[]
-    fieldsErrors: FieldError[]
-}
-
-type DeleteTodolistResponse = {
-    data: {}
-    resultCode: number
-    messages: string[]
-    fieldsErrors: FieldError[]
 }
