@@ -6,7 +6,7 @@ import {store} from './app/store'
 
 createRoot(document.getElementById('root')!).render(
     <Provider store={store}>
-      <AppHttpRequests/>
-      {/*  <App/>*/}
+        <AppHttpRequests/>
+        {/*  <App/>*/}
     </Provider>
 )

@@ -1,8 +1,8 @@
 import {type ChangeEvent, type CSSProperties, useEffect, useState} from 'react'
 import Checkbox from '@mui/material/Checkbox'
 import {CreateItemForm, EditableSpan} from "@/common/components";
-import {BaseResponse} from "@/common/types";
-import {instance} from "@/common/instance/instance.ts";
+import {Todolist} from "@/features/todolists/api/todolistsApi.types.ts";
+import {todolistsApi} from "@/features/todolists/api/todolistsApi.ts";
 
 
 export const AppHttpRequests = () => {
@@ -10,24 +10,21 @@ export const AppHttpRequests = () => {
     const [tasks, setTasks] = useState<any>({})
 
     useEffect(() => {
-        instance.get<Todolist[]>('/todo-lists').then(res => setTodolists(res.data))
+        todolistsApi.getTodolist().then(res => setTodolists(res.data))
     }, [setTodolists, setTasks])
-
-
     const createTodolist = (title: string) => {
-        instance.post<BaseResponse<{ item: Todolist }>>('/todo-lists', {title}).then(res => {
+        todolistsApi.createTodolist(title).then(res => {
             const newTodolist = res.data.data.item
             setTodolists([newTodolist, ...todolists])
         })
     }
     const deleteTodolist = (todolistId: string) => {
-        instance.delete<BaseResponse>(`/todo-lists/${todolistId}`).then(() => {
+        todolistsApi.deleteTodolist(todolistId).then(() => {
             setTodolists(todolists.filter(el => el.id !== todolistId))
         })
     }
-
     const changeTodolistTitle = (todolistId: string, title: string) => {
-        instance.put<BaseResponse>(`/todo-lists/${todolistId}`, {title}).then(() => {
+        todolistsApi.changeTodolistTitle(todolistId, title).then(() => {
             setTodolists(todolists.map(t => t.id === todolistId ? {...t, title: title} : t))
         })
     }
@@ -78,10 +75,4 @@ const container: CSSProperties = {
     display: 'flex',
     justifyContent: 'space-between',
     flexDirection: 'column',
-}
-export type Todolist = {
-    id: string
-    title: string
-    addedDate: string
-    order: number
 }
