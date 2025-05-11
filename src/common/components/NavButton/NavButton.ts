@@ -1,9 +1,9 @@
-import { styled } from '@mui/material/styles'
-import Button from '@mui/material/Button'
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
 type Props = {
-  background?: string
-}
+  background?: string;
+};
 
 export const NavButton = styled(Button)<Props>(({ background, theme }) => ({
   minWidth: '110px',
@@ -15,4 +15,4 @@ export const NavButton = styled(Button)<Props>(({ background, theme }) => ({
   padding: '8px 24px',
   color: theme.palette.primary.contrastText,
   background: background || theme.palette.primary.light,
-}))
+}));
