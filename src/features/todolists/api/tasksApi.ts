@@ -19,9 +19,22 @@ export const tasksApi = {
     );
   },
   deleteTask(todolistId: string, taskId: string) {
-    return instance.delete<any>(`/todo-lists/${todolistId}/tasks/${taskId}`);
+    return instance.delete<BaseResponse>(
+      `/todo-lists/${todolistId}/tasks/${taskId}`,
+    );
   },
   changeTaskStatus(payload: {
+    todolistId: string;
+    taskId: string;
+    model: UpdateTaskModel;
+  }) {
+    const { todolistId, taskId, model } = payload;
+    return instance.put<BaseResponse<{ item: DomainTask }>>(
+      `/todo-lists/${todolistId}/tasks/${taskId}`,
+      model,
+    );
+  },
+  changeTaskTitle(payload: {
     todolistId: string;
     taskId: string;
     model: UpdateTaskModel;

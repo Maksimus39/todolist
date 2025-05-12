@@ -11,6 +11,7 @@ import { todolistsApi } from '@/features/todolists/api/todolistsApi.ts';
 import { tasksApi } from '@/features/todolists/api/tasksApi.ts';
 import {
   DomainTask,
+  TaskStatus,
   UpdateTaskModel,
 } from '@/features/todolists/api/tasksApi.types.ts';
 
@@ -28,7 +29,7 @@ export const AppHttpRequests = () => {
         });
       });
     });
-  }, [setTodolists, setTasks]);
+  }, [setTasks]);
 
   const createTodolist = (title: string) => {
     todolistsApi.createTodolist(title).then((res) => {
@@ -57,7 +58,7 @@ export const AppHttpRequests = () => {
     tasksApi.createTask(todolistId, title).then((res) => {
       setTasks({
         ...tasks,
-        [todolistId]: [res.data.data.item, ...tasks[todolistId]],
+        [todolistId]: [res.data.data.item, ...(tasks[todolistId] || [])],
       });
     });
   };
@@ -65,6 +66,10 @@ export const AppHttpRequests = () => {
   const deleteTask = (todolistId: string, taskId: string) => {
     tasksApi.deleteTask(todolistId, taskId).then((res) => {
       console.log(res.data);
+      setTasks({
+        ...tasks,
+        [todolistId]: tasks[todolistId].filter((el) => el.id !== taskId),
+      });
     });
   };
 
@@ -80,7 +85,7 @@ export const AppHttpRequests = () => {
       priority: task.priority,
       startDate: task.startDate,
       deadline: task.deadline,
-      status: e.currentTarget.checked ? 2 : 0,
+      status: e.currentTarget.checked ? TaskStatus.Completed : TaskStatus.New,
     };
     tasksApi
       .changeTaskStatus({
@@ -98,7 +103,32 @@ export const AppHttpRequests = () => {
       });
   };
 
-  const changeTaskTitle = (task: any, title: string) => {};
+  const changeTaskTitle = (task: DomainTask, title: string) => {
+    const todolistId = task.todoListId;
+
+    const model: UpdateTaskModel = {
+      title: title,
+      description: task.description,
+      priority: task.priority,
+      startDate: task.startDate,
+      deadline: task.deadline,
+      status: task.status,
+    };
+    tasksApi
+      .changeTaskTitle({
+        todolistId,
+        taskId: task.id,
+        model: model,
+      })
+      .then((res) => {
+        setTasks({
+          ...tasks,
+          [todolistId]: tasks[todolistId].map((el) =>
+            el.id === task.id ? res.data.data.item : el,
+          ),
+        });
+      });
+  };
 
   return (
     <div style={{ margin: '20px' }}>
@@ -118,7 +148,7 @@ export const AppHttpRequests = () => {
           {tasks[todolist.id]?.map((task) => (
             <div key={task.id}>
               <Checkbox
-                checked={task.status === 2}
+                checked={task.status === TaskStatus.Completed}
                 onChange={(e) => changeTaskStatus(e, task)}
               />
               <EditableSpan
