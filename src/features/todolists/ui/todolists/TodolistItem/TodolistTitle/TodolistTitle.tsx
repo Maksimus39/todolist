@@ -1,13 +1,13 @@
 import { EditableSpan } from '@/common/components/EditableSpan/EditableSpan';
+import { useAppDispatch } from '@/common/hooks';
 import {
   changeTodolistTitleAC,
   deleteTodolistAC,
   type Todolist,
-} from '@/features/todolists/model/todolists-reducer';
+} from '@/features/todolists/model/todolists-slice.ts';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import styles from './TodolistTitle.module.css';
-import { useAppDispatch } from '@/common/hooks';
 
 type Props = {
   todolist: Todolist;

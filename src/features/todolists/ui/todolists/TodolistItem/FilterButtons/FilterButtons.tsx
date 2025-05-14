@@ -1,12 +1,12 @@
+import { useAppDispatch } from '@/common/hooks';
+import { containerSx } from '@/common/styles';
 import {
   changeTodolistFilterAC,
   type FilterValues,
   type Todolist,
-} from '@/features/todolists/model/todolists-reducer';
+} from '@/features/todolists/model/todolists-slice.ts';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { useAppDispatch } from '@/common/hooks';
-import { containerSx } from '@/common/styles';
 
 type Props = {
   todolist: Todolist;

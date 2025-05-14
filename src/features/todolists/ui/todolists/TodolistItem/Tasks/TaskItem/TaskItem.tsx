@@ -1,17 +1,17 @@
+import { EditableSpan } from '@/common/components/EditableSpan/EditableSpan';
+import { useAppDispatch } from '@/common/hooks';
 import {
   changeTaskStatusAC,
   changeTaskTitleAC,
   deleteTaskAC,
   type Task,
-} from '@/features/todolists/model/tasks-reducer';
+} from '@/features/todolists/model/tasks-slice.ts';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
 import ListItem from '@mui/material/ListItem';
 import type { ChangeEvent } from 'react';
 import { getListItemSx } from './TaskItem.styles';
-import { useAppDispatch } from '@/common/hooks';
-import { EditableSpan } from '@/common/components';
 
 type Props = {
   task: Task;
@@ -22,12 +22,7 @@ export const TaskItem = ({ task, todolistId }: Props) => {
   const dispatch = useAppDispatch();
 
   const deleteTask = () => {
-    dispatch(
-      deleteTaskAC({
-        todolistId,
-        taskId: task.id,
-      }),
-    );
+    dispatch(deleteTaskAC({ todolistId, taskId: task.id }));
   };
 
   const changeTaskStatus = (e: ChangeEvent<HTMLInputElement>) => {
@@ -42,13 +37,7 @@ export const TaskItem = ({ task, todolistId }: Props) => {
   };
 
   const changeTaskTitle = (title: string) => {
-    dispatch(
-      changeTaskTitleAC({
-        todolistId,
-        taskId: task.id,
-        title,
-      }),
-    );
+    dispatch(changeTaskTitleAC({ todolistId, taskId: task.id, title }));
   };
 
   return (

@@ -1,2 +1,2 @@
-export * from './useAppDispatch.ts';
-export * from './useAppSelector.ts';
+export { useAppDispatch } from "./useAppDispatch"
+export { useAppSelector } from "./useAppSelector"

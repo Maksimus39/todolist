@@ -7,7 +7,7 @@ import {
   deleteTodolistAC,
   type Todolist,
   todolistsReducer,
-} from '../todolists-reducer';
+} from '../todolists-slice.ts';
 
 let todolistId1: string;
 let todolistId2: string;
@@ -18,21 +18,16 @@ beforeEach(() => {
   todolistId2 = nanoid();
 
   startState = [
-    {
-      id: todolistId1,
-      title: 'What to learn',
-      filter: 'all',
-    },
-    {
-      id: todolistId2,
-      title: 'What to buy',
-      filter: 'all',
-    },
+    { id: todolistId1, title: 'What to learn', filter: 'all' },
+    { id: todolistId2, title: 'What to buy', filter: 'all' },
   ];
 });
 
 test('correct todolist should be deleted', () => {
-  const endState = todolistsReducer(startState, deleteTodolistAC({ id: todolistId1 }));
+  const endState = todolistsReducer(
+    startState,
+    deleteTodolistAC({ id: todolistId1 }),
+  );
 
   expect(endState.length).toBe(1);
   expect(endState[0].id).toBe(todolistId2);
@@ -50,10 +45,7 @@ test('correct todolist should change its title', () => {
   const title = 'New title';
   const endState = todolistsReducer(
     startState,
-    changeTodolistTitleAC({
-      id: todolistId2,
-      title,
-    }),
+    changeTodolistTitleAC({ id: todolistId2, title }),
   );
 
   expect(endState[0].title).toBe('What to learn');
@@ -64,10 +56,7 @@ test('correct todolist should change its filter', () => {
   const filter = 'completed';
   const endState = todolistsReducer(
     startState,
-    changeTodolistFilterAC({
-      id: todolistId2,
-      filter,
-    }),
+    changeTodolistFilterAC({ id: todolistId2, filter }),
   );
 
   expect(endState[0].filter).toBe('all');

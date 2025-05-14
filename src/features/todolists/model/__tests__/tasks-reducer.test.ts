@@ -6,8 +6,8 @@ import {
   deleteTaskAC,
   tasksReducer,
   type TasksState,
-} from '../tasks-reducer';
-import { createTodolistAC, deleteTodolistAC } from '../todolists-reducer';
+} from '../tasks-slice.ts';
+import { createTodolistAC, deleteTodolistAC } from '../todolists-slice.ts';
 
 let startState: TasksState = {};
 
@@ -29,10 +29,7 @@ beforeEach(() => {
 test('correct task should be deleted', () => {
   const endState = tasksReducer(
     startState,
-    deleteTaskAC({
-      todolistId: 'todolistId2',
-      taskId: '2',
-    }),
+    deleteTaskAC({ todolistId: 'todolistId2', taskId: '2' }),
   );
 
   expect(endState).toEqual({
@@ -106,7 +103,10 @@ test('array should be created for new todolist', () => {
 });
 
 test('property with todolistId should be deleted', () => {
-  const endState = tasksReducer(startState, deleteTodolistAC({ id: 'todolistId2' }));
+  const endState = tasksReducer(
+    startState,
+    deleteTodolistAC({ id: 'todolistId2' }),
+  );
 
   const keys = Object.keys(endState);
 
