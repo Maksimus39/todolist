@@ -10,23 +10,19 @@ export const tasksSlice = createSlice({
       taskId: string;
     }>((state, action) => {
       const tasks = state[action.payload.todolistId];
-      const index = tasks.findIndex(
-        (task) => task.id === action.payload.taskId,
-      );
+      const index = tasks.findIndex((task) => task.id === action.payload.taskId);
       if (index !== -1) {
         tasks.splice(index, 1);
       }
     }),
-    createTaskAC: create.reducer<{ todolistId: string; title: string }>(
-      (state, action) => {
-        const newTask: Task = {
-          title: action.payload.title,
-          isDone: false,
-          id: nanoid(),
-        };
-        state[action.payload.todolistId].unshift(newTask);
-      },
-    ),
+    createTaskAC: create.reducer<{ todolistId: string; title: string }>((state, action) => {
+      const newTask: Task = {
+        title: action.payload.title,
+        isDone: false,
+        id: nanoid(),
+      };
+      state[action.payload.todolistId].unshift(newTask);
+    }),
     changeTaskStatusAC: create.reducer<{
       todolistId: string;
       taskId: string;
@@ -63,12 +59,8 @@ export const tasksSlice = createSlice({
   },
 });
 
-export const {
-  changeTaskStatusAC,
-  changeTaskTitleAC,
-  createTaskAC,
-  deleteTaskAC,
-} = tasksSlice.actions;
+export const { changeTaskStatusAC, changeTaskTitleAC, createTaskAC, deleteTaskAC } =
+  tasksSlice.actions;
 export const tasksReducer = tasksSlice.reducer;
 
 export type Task = {
