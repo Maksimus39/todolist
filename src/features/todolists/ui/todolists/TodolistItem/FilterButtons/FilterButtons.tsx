@@ -23,11 +23,7 @@ export const FilterButtons = ({ todolist }: Props) => {
 
   return (
     <Box sx={containerSx}>
-      <Button
-        variant={filter === 'all' ? 'outlined' : 'text'}
-        color={'inherit'}
-        onClick={() => changeFilter('all')}
-      >
+      <Button variant={filter === 'all' ? 'outlined' : 'text'} color={'inherit'} onClick={() => changeFilter('all')}>
         All
       </Button>
       <Button

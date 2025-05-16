@@ -57,6 +57,19 @@ export const todolistsSlice = createSlice({
         if (index !== -1) {
           state[index].title = action.payload.title;
         }
+      })
+      .addCase(createTodolistTC.fulfilled, (state, action) => {
+        state.unshift(action.payload); // добавляем новый тудулист в начало массива
+      })
+      // Добавляем обработчик для deleteTodolistTC
+      .addCase(deleteTodolistTC.fulfilled, (state, action) => {
+        const index = state.findIndex((todolist) => todolist.id === action.payload.id);
+        if (index !== -1) {
+          state.splice(index, 1);
+        }
+      })
+      .addCase(deleteTodolistTC.rejected, (_, action) => {
+        console.error('Delete todolist failed:', action.payload);
       });
   },
 });
@@ -83,10 +96,38 @@ export const changeTodolistTitleTC = createAsyncThunk(
     }
   },
 );
+// создание тудулиста
+export const createTodolistTC = createAsyncThunk(
+  `${todolistsSlice.name}/createTodolistTC`,
+  async (title: string, thunkAPI) => {
+    // Принимаем строку, а не объект
+    try {
+      const res = await todolistsApi.createTodolist(title); // Передаём строку
+      return {
+        ...res.data.data.item,
+        filter: 'all' as const,
+      };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+// Удаление тудулиста
+export const deleteTodolistTC = createAsyncThunk(
+  // Возвращаемый тип
+  `${todolistsSlice.name}/deleteTodolistTC`,
+  async (payload: { id: string }, thunkAPI) => {
+    try {
+      await todolistsApi.deleteTodolist(payload.id); // Предполагаем, что API принимает id напрямую
+      return { id: payload.id };
+    } catch (error) {
+      return thunkAPI.rejectWithValue('Failed to delete todolist');
+    }
+  },
+);
 
 export const todolistsReducer = todolistsSlice.reducer;
 export const { deleteTodolistAC, createTodolistAC, changeTodolistFilterAC } = todolistsSlice.actions;
-
 export const { selectTodolists } = todolistsSlice.selectors;
 
 export type DomainTodolist = Todolist & {

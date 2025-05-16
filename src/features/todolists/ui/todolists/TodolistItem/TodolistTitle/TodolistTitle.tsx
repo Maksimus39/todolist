@@ -3,11 +3,7 @@ import { useAppDispatch } from '@/common/hooks';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import styles from './TodolistTitle.module.css';
-import {
-  changeTodolistTitleAC,
-  deleteTodolistAC,
-  DomainTodolist,
-} from '@/features/todolists/model/todolists-slice.ts';
+import { changeTodolistTitleTC, deleteTodolistTC, DomainTodolist } from '@/features/todolists/model/todolists-slice.ts';
 
 type Props = {
   todolist: DomainTodolist;
@@ -19,11 +15,11 @@ export const TodolistTitle = ({ todolist }: Props) => {
   const dispatch = useAppDispatch();
 
   const deleteTodolist = () => {
-    dispatch(deleteTodolistAC({ id }));
+    dispatch(deleteTodolistTC({ id }));
   };
 
   const changeTodolistTitle = (title: string) => {
-    dispatch(changeTodolistTitleAC({ id, title }));
+    dispatch(changeTodolistTitleTC({ id, title }));
   };
 
   return (
