@@ -28,9 +28,7 @@ export const tasksSlice = createSlice({
       taskId: string;
       isDone: boolean;
     }>((state, action) => {
-      const task = state[action.payload.todolistId].find(
-        (task) => task.id === action.payload.taskId,
-      );
+      const task = state[action.payload.todolistId].find((task) => task.id === action.payload.taskId);
       if (task) {
         task.isDone = action.payload.isDone;
       }
@@ -40,9 +38,7 @@ export const tasksSlice = createSlice({
       taskId: string;
       title: string;
     }>((state, action) => {
-      const task = state[action.payload.todolistId].find(
-        (task) => task.id === action.payload.taskId,
-      );
+      const task = state[action.payload.todolistId].find((task) => task.id === action.payload.taskId);
       if (task) {
         task.title = action.payload.title;
       }
@@ -59,8 +55,7 @@ export const tasksSlice = createSlice({
   },
 });
 
-export const { changeTaskStatusAC, changeTaskTitleAC, createTaskAC, deleteTaskAC } =
-  tasksSlice.actions;
+export const { changeTaskStatusAC, changeTaskTitleAC, createTaskAC, deleteTaskAC } = tasksSlice.actions;
 export const tasksReducer = tasksSlice.reducer;
 
 export type Task = {

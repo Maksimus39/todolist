@@ -41,9 +41,7 @@ export const AppHttpRequests = () => {
 
   const changeTodolistTitle = (id: string, title: string) => {
     todolistsApi.changeTodolistTitle({ id, title }).then(() => {
-      setTodolists(
-        todolists.map((todolist) => (todolist.id === id ? { ...todolist, title } : todolist)),
-      );
+      setTodolists(todolists.map((todolist) => (todolist.id === id ? { ...todolist, title } : todolist)));
     });
   };
 
@@ -106,19 +104,13 @@ export const AppHttpRequests = () => {
       {todolists.map((todolist) => (
         <div key={todolist.id} style={container}>
           <div>
-            <EditableSpan
-              value={todolist.title}
-              onChange={(title) => changeTodolistTitle(todolist.id, title)}
-            />
+            <EditableSpan value={todolist.title} onChange={(title) => changeTodolistTitle(todolist.id, title)} />
             <button onClick={() => deleteTodolist(todolist.id)}>x</button>
           </div>
           <CreateItemForm onCreateItem={(title) => createTask(todolist.id, title)} />
           {tasks[todolist.id]?.map((task) => (
             <div key={task.id}>
-              <Checkbox
-                checked={task.status === TaskStatus.Completed}
-                onChange={(e) => changeTaskStatus(e, task)}
-              />
+              <Checkbox checked={task.status === TaskStatus.Completed} onChange={(e) => changeTaskStatus(e, task)} />
               <EditableSpan value={task.title} onChange={(title) => changeTaskTitle(task, title)} />
               <button onClick={() => deleteTask(todolist.id, task.id)}>x</button>
             </div>
