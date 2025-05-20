@@ -2,6 +2,7 @@ import { createAsyncThunk, nanoid } from '@reduxjs/toolkit';
 import { Todolist } from '@/features/todolists/api/todolistsApi.types.ts';
 import { todolistsApi } from '@/features/todolists/api/todolistsApi.ts';
 import { createAppSlice } from '@/common/utils';
+import { changeStatusModeAC } from '@/app/app-slice.ts';
 
 export const todolistsSlice = createAppSlice({
   name: 'todolists',
@@ -40,12 +41,16 @@ export const todolistsSlice = createAppSlice({
       }
     }),
     fetchTodolistsTC: create.asyncThunk(
-      async (_arg, thunkAPI) => {
+      async (_arg, { dispatch, rejectWithValue }) => {
         try {
+          // on
+          dispatch(changeStatusModeAC({ status: 'loading' }));
           const res = await todolistsApi.getTodolists();
           return { todolists: res.data };
         } catch (error) {
-          return thunkAPI.rejectWithValue(error);
+          return rejectWithValue(error);
+        } finally {
+          dispatch(changeStatusModeAC({ status: 'idle' }));
         }
       },
       {
@@ -99,16 +104,18 @@ export const changeTodolistTitleTC = createAsyncThunk(
 // создание тудулиста
 export const createTodolistTC = createAsyncThunk(
   `${todolistsSlice.name}/createTodolistTC`,
-  async (title: string, thunkAPI) => {
+  async (title: string, { rejectWithValue, dispatch }) => {
     // Принимаем строку, а не объект
     try {
+      dispatch(changeStatusModeAC({ status: 'loading' }));
       const res = await todolistsApi.createTodolist(title); // Передаём строку
+      dispatch(changeStatusModeAC({ status: 'succeeded' }));
       return {
         ...res.data.data.item,
         filter: 'all' as const,
       };
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return rejectWithValue(error);
     }
   },
 );

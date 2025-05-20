@@ -1,3 +1,5 @@
+export type RequestStatus = 'idle' | 'loading' | 'succeeded' | 'failed';
+
 export type FieldError = {
   error: string;
   field: string;
