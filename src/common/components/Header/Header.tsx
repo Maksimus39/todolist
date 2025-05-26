@@ -1,4 +1,4 @@
-import { changeThemeModeAC, selectStatusMode, selectThemeMode } from '@/app/app-slice.ts';
+import { changeThemeModeAC, selectAppStatus, selectThemeMode } from '@/app/app-slice.ts';
 import { useAppDispatch, useAppSelector } from '@/common/hooks';
 import { containerSx } from '@/common/styles';
 import { getTheme } from '@/common/theme';
@@ -13,18 +13,14 @@ import LinearProgress from '@mui/material/LinearProgress';
 
 export const Header = () => {
   const themeMode = useAppSelector(selectThemeMode);
-  const status = useAppSelector(selectStatusMode);
+  const status = useAppSelector(selectAppStatus);
 
   const dispatch = useAppDispatch();
 
   const theme = getTheme(themeMode);
 
   const changeMode = () => {
-    dispatch(
-      changeThemeModeAC({
-        themeMode: themeMode === 'light' ? 'dark' : 'light',
-      }),
-    );
+    dispatch(changeThemeModeAC({ themeMode: themeMode === 'light' ? 'dark' : 'light' }));
   };
 
   return (
