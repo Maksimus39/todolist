@@ -3,6 +3,7 @@ import type { BaseResponse } from '@/common/types';
 import type { Todolist } from './todolistsApi.types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { AUTH_TOKEN } from '@/common/constants';
+import { DomainTodolist } from '@/features/todolists/model/todolists-slice.ts';
 
 export const todolistsApi = createApi({
   reducerPath: 'todolistsApi',
@@ -14,14 +15,42 @@ export const todolistsApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    getTodolists: build.query<any[], void>({
+    getTodolists: build.query<DomainTodolist[], void>({
       query: () => 'todo-lists',
+      transformResponse: (todolists: Todolist[]): DomainTodolist[] =>
+        todolists.map((todolist) => ({ ...todolist, filter: 'all', entityStatus: 'idle' })),
+    }),
+    createTodolist: build.mutation<BaseResponse<{ item: Todolist }>, string>({
+      query: (title) => ({
+        url: '/todo-lists',
+        method: 'POST',
+        body: { title },
+      }),
+    }),
+    deleteTodolist: build.mutation<BaseResponse, string>({
+      query: (id) => ({
+        url: `/todo-lists/${id}`,
+        method: 'DELETE',
+      }),
+    }),
+    changeTodolistTitle: build.mutation<BaseResponse, { id: string; title: string  }>({
+      query: ({ id, title }) => ({
+        url: `/todo-lists/${id}`,
+        method: 'PUT',
+        body: { title },
+      }),
     }),
   }),
 });
 
-export const { useGetTodolistsQuery } = todolistsApi;
+export const {
+  useGetTodolistsQuery,
+  useCreateTodolistMutation,
+  useDeleteTodolistMutation,
+  useChangeTodolistTitleMutation,
+} = todolistsApi;
 
+//---------------------------------------------------------------------------------------------------------------
 export const _todolistsApi = {
   getTodolists() {
     return instance.get<Todolist[]>('/todo-lists');

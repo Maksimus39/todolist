@@ -14,14 +14,7 @@ export const store = configureStore({
     [authSlice.name]: authReducer,
     [todolistsApi.reducerPath]: todolistsApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(todolistsApi.middleware),
-});
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(todolistsApi.middleware),
+})
 
-setupListeners(store.dispatch);
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-
-// для возможности обращения к store в консоли браузера
-// @ts-ignore
-window.store = store;
+setupListeners(store.dispatch)
