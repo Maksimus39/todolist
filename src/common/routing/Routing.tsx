@@ -1,18 +1,18 @@
-import { Main } from "@/app/Main"
-import { PageNotFound, ProtectedRoute } from "@/common/components"
-import { useAppSelector } from "@/common/hooks"
-import { selectIsLoggedIn } from "@/features/auth/model/auth-slice"
-import { Login } from "@/features/auth/ui/Login/Login"
-import { Route, Routes } from "react-router"
+import { Main } from '@/app/Main';
+import { PageNotFound, ProtectedRoute } from '@/common/components';
+import { useAppSelector } from '@/common/hooks';
+import { Login } from '@/features/auth/ui/Login/Login';
+import { Route, Routes } from 'react-router';
+import { selectIsLoggedIn } from '@/app/app-slice.ts';
 
 export const Path = {
-  Main: "/",
-  Login: "login",
-  NotFound: "*",
-} as const
+  Main: '/',
+  Login: 'login',
+  NotFound: '*',
+} as const;
 
 export const Routing = () => {
-  const isLoggedIn = useAppSelector(selectIsLoggedIn)
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
   return (
     <Routes>
@@ -24,5 +24,5 @@ export const Routing = () => {
       </Route>
       <Route path={Path.NotFound} element={<PageNotFound />} />
     </Routes>
-  )
-}
+  );
+};

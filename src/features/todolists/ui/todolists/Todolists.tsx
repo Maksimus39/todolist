@@ -1,7 +1,7 @@
 import Grid from '@mui/material/Grid2';
 import Paper from '@mui/material/Paper';
-import { TodolistItem } from '@/features/todolists/ui/todolists/TodolistItem/TodolistItem.tsx';
 import { useGetTodolistsQuery } from '@/features/todolists/api/todolistsApi.ts';
+import { TodolistItem } from '@/features/todolists/ui/Todolists/TodolistItem/TodolistItem.tsx';
 
 export const Todolists = () => {
   const { data: todolists } = useGetTodolistsQuery();

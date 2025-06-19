@@ -1,34 +1,41 @@
-import "./App.css"
-import { selectThemeMode } from "@/app/app-slice"
-import { ErrorSnackbar, Header } from "@/common/components"
-import { useAppDispatch, useAppSelector } from "@/common/hooks"
-import { Routing } from "@/common/routing"
-import { getTheme } from "@/common/theme"
-import { initializeAppTC, selectIsInitialized } from "@/features/auth/model/auth-slice"
-import CircularProgress from "@mui/material/CircularProgress"
-import CssBaseline from "@mui/material/CssBaseline"
-import { ThemeProvider } from "@mui/material/styles"
-import { useEffect } from "react"
-import styles from "./App.module.css"
+import './App.css';
+import { selectThemeMode, setIsLoggedInAC } from '@/app/app-slice';
+import { ErrorSnackbar, Header } from '@/common/components';
+import { useAppDispatch, useAppSelector } from '@/common/hooks';
+import { Routing } from '@/common/routing';
+import { getTheme } from '@/common/theme';
+import CircularProgress from '@mui/material/CircularProgress';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import { useEffect, useState } from 'react';
+import styles from './App.module.css';
+import { useMeQuery } from '@/features/auth/api/authApi.ts';
+import { ResultCode } from '@/common/enums';
 
 export const App = () => {
-  const themeMode = useAppSelector(selectThemeMode)
-  const isInitialized = useAppSelector(selectIsInitialized)
+  const [isInitialized, setIsInitialized] = useState(false);
+  const themeMode = useAppSelector(selectThemeMode);
 
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
-  const theme = getTheme(themeMode)
+  const theme = getTheme(themeMode);
+
+  const { data, isLoading } = useMeQuery();
 
   useEffect(() => {
-    dispatch(initializeAppTC())
-  }, [])
+    if (isLoading) return;
+    setIsInitialized(true);
+    if (data?.resultCode === ResultCode.Success) {
+      dispatch(setIsLoggedInAC({ isLoggedIn: true }));
+    }
+  }, [isLoading]);
 
   if (!isInitialized) {
     return (
       <div className={styles.circularProgressContainer}>
         <CircularProgress size={150} thickness={3} />
       </div>
-    )
+    );
   }
 
   return (
@@ -40,5 +47,5 @@ export const App = () => {
         <ErrorSnackbar />
       </div>
     </ThemeProvider>
-  )
-}
+  );
+};
