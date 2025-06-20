@@ -1,35 +1,36 @@
-import { EditableSpan } from '@/common/components';
-import { type DomainTodolist } from '@/features/todolists/model/todolists-slice';
-import DeleteIcon from '@mui/icons-material/Delete';
-import IconButton from '@mui/material/IconButton';
-import styles from './TodolistTitle.module.css';
-import { useChangeTodolistTitleMutation, useDeleteTodolistMutation } from '@/features/todolists/api/todolistsApi.ts';
+import { EditableSpan } from "@/common/components"
+import { useRemoveTodolistMutation, useUpdateTodolistTitleMutation } from "@/features/todolists/api/todolistsApi"
+import { type DomainTodolist } from "@/features/todolists/model/todolists-slice"
+import DeleteIcon from "@mui/icons-material/Delete"
+import IconButton from "@mui/material/IconButton"
+import styles from "./TodolistTitle.module.css"
 
 type Props = {
-  todolist: DomainTodolist;
-};
+  todolist: DomainTodolist
+}
 
 export const TodolistTitle = ({ todolist }: Props) => {
-  const { id, title, entityStatus } = todolist;
+  const { id, title, entityStatus } = todolist
 
-  const [deleteTodolist] = useDeleteTodolistMutation();
-  const [changeTodolistTitle] = useChangeTodolistTitleMutation();
+  const [removeTodolist] = useRemoveTodolistMutation()
+  const [updateTodolistTitle] = useUpdateTodolistTitleMutation()
 
-  const deleteTodolistHandler = () => {
-    deleteTodolist(id);
-  };
-  const changeTodolistTitleHandler = (title: string) => {
-    changeTodolistTitle({ id, title });
-  };
+  const deleteTodolist = () => {
+    removeTodolist(id)
+  }
+
+  const changeTodolistTitle = (title: string) => {
+    updateTodolistTitle({ id, title })
+  }
 
   return (
     <div className={styles.container}>
       <h3>
-        <EditableSpan value={title} onChange={changeTodolistTitleHandler} />
+        <EditableSpan value={title} onChange={changeTodolistTitle} />
       </h3>
-      <IconButton onClick={deleteTodolistHandler} disabled={entityStatus === 'loading'}>
+      <IconButton onClick={deleteTodolist} disabled={entityStatus === "loading"}>
         <DeleteIcon />
       </IconButton>
     </div>
-  );
-};
+  )
+}

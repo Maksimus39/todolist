@@ -1,20 +1,20 @@
-import Grid from '@mui/material/Grid2';
-import Paper from '@mui/material/Paper';
-import { useGetTodolistsQuery } from '@/features/todolists/api/todolistsApi.ts';
-import { TodolistItem } from '@/features/todolists/ui/Todolists/TodolistItem/TodolistItem.tsx';
+import { useGetTodolistsQuery } from "@/features/todolists/api/todolistsApi"
+import Grid from "@mui/material/Grid2"
+import Paper from "@mui/material/Paper"
+import { TodolistItem } from "./TodolistItem/TodolistItem"
 
 export const Todolists = () => {
-  const { data: todolists } = useGetTodolistsQuery();
+  const { data: todolists } = useGetTodolistsQuery()
 
   return (
     <>
       {todolists?.map((todolist) => (
         <Grid key={todolist.id}>
-          <Paper sx={{ p: '0 20px 20px 20px' }}>
+          <Paper sx={{ p: "0 20px 20px 20px" }}>
             <TodolistItem todolist={todolist} />
           </Paper>
         </Grid>
       ))}
     </>
-  );
-};
+  )
+}
