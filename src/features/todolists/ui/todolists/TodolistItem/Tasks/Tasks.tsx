@@ -1,24 +1,29 @@
-import { TaskStatus } from "@/common/enums"
-import { useGetTasksQuery } from "@/features/todolists/api/tasksApi"
-import type { DomainTodolist } from "@/features/todolists/model/todolists-slice"
-import List from "@mui/material/List"
-import { TaskItem } from "./TaskItem/TaskItem"
+import { TaskStatus } from '@/common/enums';
+import { useGetTasksQuery } from '@/features/todolists/api/tasksApi';
+import type { DomainTodolist } from '@/features/todolists/model/todolists-slice';
+import List from '@mui/material/List';
+import { TaskItem } from './TaskItem/TaskItem';
+import { TasksSkeleton } from '@/features/todolists/ui/Todolists/TodolistItem/Tasks/TasksSkeleton.tsx';
 
 type Props = {
-  todolist: DomainTodolist
-}
+  todolist: DomainTodolist;
+};
 
 export const Tasks = ({ todolist }: Props) => {
-  const { id, filter } = todolist
+  const { id, filter } = todolist;
 
-  const { data } = useGetTasksQuery(id)
+  const { data, isLoading } = useGetTasksQuery(id);
 
-  let filteredTasks = data?.items
-  if (filter === "active") {
-    filteredTasks = filteredTasks?.filter((task) => task.status === TaskStatus.New)
+  let filteredTasks = data?.items;
+  if (filter === 'active') {
+    filteredTasks = filteredTasks?.filter((task) => task.status === TaskStatus.New);
   }
-  if (filter === "completed") {
-    filteredTasks = filteredTasks?.filter((task) => task.status === TaskStatus.Completed)
+  if (filter === 'completed') {
+    filteredTasks = filteredTasks?.filter((task) => task.status === TaskStatus.Completed);
+  }
+
+  if (isLoading) {
+    return <TasksSkeleton />;
   }
 
   return (
@@ -29,5 +34,5 @@ export const Tasks = ({ todolist }: Props) => {
         <List>{filteredTasks?.map((task) => <TaskItem key={task.id} task={task} todolist={todolist} />)}</List>
       )}
     </>
-  )
-}
+  );
+};
